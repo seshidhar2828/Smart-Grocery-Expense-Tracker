@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Grocery & Expense Tracker</title>
+    <link rel="stylesheet" href="stylee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>🛒 Smart Grocery & Expense Tracker</h1>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <input type="text" id="itemName" placeholder="Item name">
+            <input type="number" id="itemQty" placeholder="Qty">
+            <input type="text" id="itemCategory" placeholder="Category">
+            <button id="addItemBtn"><i class="fa fa-plus"></i> Add</button>
+        </section>
+
+        <section class="search-section">
+            <input type="text" id="searchItem" placeholder="🔍 Search items...">
+        </section>
+
+        <section>
+            <h2>Grocery List</h2>
+            <ul id="groceryList"></ul>
+        </section>
+
+        <section class="expense-section">
+            <h2>Monthly Expense: ₹<span id="totalExpense">0</span></h2>
+            <button id="clearAllBtn" class="clear-btn"><i class="fa fa-trash"></i> Clear All</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with ❤️ using HTML, CSS & JS</p>
+    </footer>
+
+    <script src="scriptt.js"></script>
+</body>
+</html>
