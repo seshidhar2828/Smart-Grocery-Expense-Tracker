@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Lifecycle - Smart Grocery & Expense Tracker</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #f0f4f8, #e4ebf1);
+        text-align: center;
+        padding: 30px;
+    }
+    h1 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+    }
+    .flowchart {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1100px;
+        margin: auto;
+        position: relative;
+    }
+    .stage {
+        background: linear-gradient(135deg, #4CAF50, #45a049);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        min-width: 150px;
+        text-align: center;
+        transition: transform 0.2s ease, background 0.3s;
+        position: relative;
+    }
+    .stage:hover {
+        transform: scale(1.07);
+        background: linear-gradient(135deg, #43a047, #388e3c);
+    }
+    .arrow {
+        font-size: 1.5rem;
+        align-self: center;
+        color: #2c3e50;
+    }
+    .tooltip {
+        display: none;
+        position: absolute;
+        background: white;
+        color: #333;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        max-width: 350px;
+        text-align: left;
+        z-index: 10;
+        animation: fadeIn 0.2s ease-in-out;
+    }
+    .tooltip h3 {
+        margin-top: 0;
+        color: #4CAF50;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @media(max-width: 768px) {
+        .flowchart {
+            flex-direction: column;
+            align-items: center;
+        }
+        .arrow {
+            transform: rotate(90deg);
+        }
+    }
+</style>
+</head>
+<body>
+
+<h1>DevOps Lifecycle - Smart Grocery & Expense Tracker</h1>
+
+<div class="flowchart">
+    <div class="stage" data-title="Planning" data-info="Define features for grocery tracking, expense calculation, and search." data-code="Listed features: add items, mark purchased, track monthly expense, search filter. Decided HTML, CSS, JS, and LocalStorage.">1. Planning</div>
+    <div class="arrow">➡</div>
+    <div class="stage" data-title="Coding" data-info="Write HTML, CSS, and JavaScript for the app." data-code="HTML for layout, CSS for styling with responsive design, JS for add/delete items, mark purchased, calculate expenses, and search.">2. Coding</div>
+    <div class="arrow">➡</div>
+    <div class="stage" data-title="Building" data-info="Integrate all files and ensure functionality." data-code="Linked CSS & JS to HTML, added Font Awesome icons, structured grocery list logic.">3. Building</div>
+    <div class="arrow">➡</div>
+    <div class="stage" data-title="Testing" data-info="Check each feature works as expected." data-code="Tested adding items, marking purchased, expense calculation, search, responsiveness, and LocalStorage persistence.">4. Testing</div>
+    <div class="arrow">➡</div>
+    <div class="stage" data-title="Release" data-info="Prepare clean version for deployment." data-code="Removed unused code, compressed assets, improved UX and button hover effects.">5. Release</div>
+    <div class="arrow">➡</div>
+    <div class="stage" data-title="Deploy" data-info="Host the app online." data-code="Deployed using GitHub Pages or Vercel for public access.">6. Deploy</div>
+    <div class="arrow">➡</div>
+    <div class="stage" data-title="Operate" data-info="App is live for daily use." data-code="Users add groceries, mark purchased, and track expenses regularly.">7. Operate</div>
+    <div class="arrow">➡</div>
+    <div class="stage" data-title="Monitor" data-info="Track performance and collect feedback." data-code="Checked feedback for adding more features like price field and export option.">8. Monitor</div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+    const stages = document.querySelectorAll(".stage");
+    const tooltip = document.getElementById("tooltip");
+
+    stages.forEach(stage => {
+        stage.addEventListener("click", (e) => {
+            tooltip.innerHTML = `
+                <h3>${stage.getAttribute("data-title")}</h3>
+                <p><strong>DevOps Meaning:</strong> ${stage.getAttribute("data-info")}</p>
+                <p><strong>In Grocery Tracker Code:</strong> ${stage.getAttribute("data-code")}</p>
+            `;
+            tooltip.style.display = "block";
+            tooltip.style.top = (e.pageY + 10) + "px";
+            tooltip.style.left = (e.pageX + 10) + "px";
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.classList.contains("stage")) {
+            tooltip.style.display = "none";
+        }
+    });
+</script>
+
+</body>
+</html>
